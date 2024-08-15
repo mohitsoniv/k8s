@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: python-flask-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: lbpython
+  template:
+    metadata:
+      labels:
+        app: lbpython
+    spec:
+      containers:
+      - name: flask-app
+        image: mohitsoniv/python-flask-app:orange
