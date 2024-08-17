@@ -1,0 +1,14 @@
+apiVersion: v1
+
+kind: Pod
+metadata:
+  name: orange-flask-app
+  labels:
+    env: dev
+    application: python-flask-app
+    color: orange
+
+spec:
+  containers:
+    - name: python-flask-app
+      image: mohitsoniv/python-flask-app:orange
