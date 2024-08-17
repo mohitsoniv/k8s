@@ -3,17 +3,17 @@ kind: Deployment
 metadata:
   name: navy-deployment
   labels:
-    app: web
+    app: navy-web-app
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: web
+      app: navy-web-app
   template:
     metadata:
       labels:
-        app: web
+        app: navy-web-app
     spec:
       containers:
-      - name: my-nginx-cont
-        image: httpdmohitsoniv/httpd:webappNavy
+      - name: my-httpd-cont
+        image: mohitsoniv/httpd:webappNavy
