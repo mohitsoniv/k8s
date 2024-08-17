@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pink-web-app
+  labels:
+    app: pink-app
+spec:
+  containers:
+  - name: ubuntu-container
+    image: mohitsoniv/ubuntu:webappPink

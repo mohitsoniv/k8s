@@ -1,0 +1,14 @@
+apiVersion: v1
+
+kind: Pod
+metadata:
+  name: navy-app
+  labels:
+    env: dev
+    application: web-app
+    color: navy
+
+spec:
+  containers:
+    - name: httpd
+      image: mohitsoniv/httpd:webappNavy
