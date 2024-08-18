@@ -1,0 +1,20 @@
+---
+
+apiVersion: v1
+kind: Namespace
+metadeta: 
+name: test 
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadeta:
+name: stating 
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadeta:
+name: production 
