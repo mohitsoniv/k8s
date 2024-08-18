@@ -1,64 +1,62 @@
 ---
-
 apiVersion: app/v1
 kind: Deployment
- metadeta: 
- name: test 
+metadeta:
+  name: test
 spec:
   replicas: 2
-  selector: 
-   matchlabs: 
-    app: nginx
-  template: 
-    matadata: 
-     labels: 
+  selector:
+    matchlabs:
       app: nginx
-    spec: 
-     containers: 
-     -name: nginx
-     image: nginx:latest
+  template:
+    matadata:
+      labels:
+        app: nginx
+    spec:
+      containers: null
+      -name: nginx
+      image: nginx:latest
       ports:
-      -containerPort: 80
+        -containerPort: 80
+
 ---
-
 apiVersion: app/v1
 kind: Deployment
- metadeta:
- name: staging
+metadeta:
+  name: staging
 spec:
   replicas: 2
   selector:
-   matchlabs:
-    app: nginx
+    matchlabs:
+      app: nginx
   template:
     matadata:
-     labels:
-      app: nginx
+      labels:
+        app: nginx
     spec:
-     containers:
-     -name: nginx
-     image: nginx:latest
+      containers: null
+      -name: nginx
+      image: nginx:latest
       ports:
-      -containerPort: 80
----     
+        -containerPort: 80
 
+---
 apiVersion: app/v1
 kind: Deployment
- metadeta:
- name: production
+metadeta:
+  name: production
 spec:
   replicas: 2
   selector:
-   matchlabs:
-    app: nginx
+    matchlabs:
+      app: nginx
   template:
     matadata:
-     labels:
-      app: nginx
+      labels:
+        app: nginx
     spec:
-     containers:
-     -name: nginx
-     image: nginx:latest
+      containers: null
+      -name: nginx
+      image: nginx:latest
       ports:
-      -containerPort: 80
--- INSERT --                                     
+        -containerPort: 80
