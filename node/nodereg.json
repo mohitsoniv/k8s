@@ -1,0 +1,11 @@
+{
+ "kind": "Node",
+ "apiVersion": "v1",
+ "metadata": {
+ "name": "worker-node-1.example.com",
+ "labels": {
+ "name": "firstnode"
+ }
+ }
+}
+

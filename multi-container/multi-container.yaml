@@ -8,6 +8,7 @@ spec:
   containers:
   - name: navy-container
     image: mohitsoniv/httpd:webappNavy
+
   - name: pink-container
     image: mohitsoniv/ubuntu:webappPink
-
+    command: ["sh", "-c", "while true; do echo hello from pink container; sleep 3600; done"]
