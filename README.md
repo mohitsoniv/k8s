@@ -38,18 +38,18 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 ### Step 5: Change the hostnames of all machines
-### 5.1. On the master node
+#### 5.1. On the master node
 ```
 sudo hostnamectl set-hostname master.example.com 
 exec bash
 ```
-### 5.2. On worker1
+#### 5.2. On worker1
  * If we are deploying the cluster on multiple nodes so create the worker node
 ```
 sudo hostnamectl set-hostname worker-node-1.example.com
 exec bash
 ```
-### 5.3. On worker2 
+#### 5.3. On worker2 
 * If we are deploying the cluster on multiple nodes so create the worker node
 ```
 sudo hostnamectl set-hostname worker-node-2.example.com
@@ -69,7 +69,15 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 ```
-### Step 8: (Optional) Join Worker Nodes to the Cluster
+#### 7.1. To verify the master node's status
+```
+kubectl get nodes
+```
+#### 7.2. To generate a command with a token for joining the worker nodes
+```
+sudo kubeadm token create --print-join-command
+```
+#### Step 8: (Optional) Join Worker Nodes to the Cluster
 ```
 sudo kubeadm join <control-plane-ip>:<control-plane-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
 ```
