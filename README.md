@@ -37,7 +37,25 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
-### Step 5: Initialize the Kubernetes Cluster (Control Plane Node Only)
+### Step 5: Change the hostnames of all machines
+### 5.1. On the master node
+```
+sudo hostnamectl set-hostname master.example.com 
+exec bash
+```
+### 5.2. On worker1
+ * If we are deploying the cluster on multiple nodes so create the worker node
+```
+sudo hostnamectl set-hostname worker-node-1.example.com
+exec bash
+```
+### 5.3. On worker2 
+* If we are deploying the cluster on multiple nodes so create the worker node
+```
+sudo hostnamectl set-hostname worker-node-2.example.com
+exec bash
+```
+### Step 6: Initialize the Kubernetes Cluster (Control Plane Node Only)
 ```
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 ```
@@ -47,15 +65,15 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-### Step 6: Install a Pod Network Add-On
+### Step 7: Install a Pod Network Add-On
 ```
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 ```
-### Step 7: (Optional) Join Worker Nodes to the Cluster
+### Step 8: (Optional) Join Worker Nodes to the Cluster
 ```
 sudo kubeadm join <control-plane-ip>:<control-plane-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
 ```
-### Step 8: Verify Installation
+### Step 9: Verify Installation
 ```
 kubectl get nodes
 ```
