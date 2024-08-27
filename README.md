@@ -38,6 +38,7 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 ### Step 5: Change the hostnames of all machines
+* Skip the step 5 if you are creating single node cluster 
 #### 5.1. On the master node
 ```
 sudo hostnamectl set-hostname master.example.com 
@@ -73,7 +74,8 @@ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 ```
 kubectl get nodes
 ```
-#### 7.2. To generate a command with a token for joining the worker nodes
+#### 7.2. To generate a token for joining the worker nodes
+* Skip step 7.2 if you are creating single node cluster 
 ```
 sudo kubeadm token create --print-join-command
 ```
