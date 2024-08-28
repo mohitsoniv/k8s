@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-extra-pod
+  namespace: quota-example
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    resources:
+      requests:
+        memory: "3Gi" # Requests a large amount of memory.
+        cpu: "2"      # Requests a large amount of CPU.
+      limits:
+        memory: "4Gi"
+        cpu: "2"
+
