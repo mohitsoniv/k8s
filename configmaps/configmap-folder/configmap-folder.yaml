@@ -1,0 +1,31 @@
+# this file is create from "" kubectl get cm folder-configmap -o yaml > configmap-folder.yaml "" command 
+apiVersion: v1
+data:
+  config1.txt: |+
+    key1=value1
+
+  config2.txt: |
+    key2=value2
+  config3.txt: |
+    key3=value3
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2024-08-29T17:17:09Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:config1.txt: {}
+        f:config2.txt: {}
+        f:config3.txt: {}
+    manager: kubectl-create
+    operation: Update
+    time: "2024-08-29T17:17:09Z"
+  name: folder-configmap
+  namespace: default
+  resourceVersion: "94523"
+  selfLink: /api/v1/namespaces/default/configmaps/folder-configmap
+  uid: a17541f1-b61c-48a2-a471-8451ccc2ec1a
+
